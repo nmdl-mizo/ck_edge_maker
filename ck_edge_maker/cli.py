@@ -2,11 +2,12 @@
 """
 A script for CLI interface of ck_edge_maker
 """
-from ck_edge_maker import *
-import sys
 import os
 import argparse
+import h5py
+import numpy as np
 from tqdm import tqdm
+import ck_edge_maker as cem
 
 
 def main():
@@ -65,8 +66,8 @@ def main():
 #                continue
             f_out_mol = f_out.create_group(f"/{mol_id}")
             if args.task == "mol":
-                mss = get_mol_spectrum_set(f_in_mol, average=args.sum)
-                msi = get_smeared_intensity(
+                mss = cem.get_mol_spectrum_set(f_in_mol, average=args.sum)
+                msi = cem.get_smeared_intensity(
                     mss,
                     energies=energies,
                     sigma=args.sigma,
@@ -89,8 +90,8 @@ def main():
             elif args.task == "site":
                 for site_id, f_in_site in sorted(f_in_mol.items(), key=lambda x: int(x[0])):
                     f_out_site = f_out_mol.create_group(f"{site_id}")
-                    sss = get_site_spectrum_set(f_in_site)
-                    ssi = get_smeared_intensity(
+                    sss = cem.get_site_spectrum_set(f_in_site)
+                    ssi = cem.get_smeared_intensity(
                         sss,
                         energies=energies,
                         sigma=args.sigma,

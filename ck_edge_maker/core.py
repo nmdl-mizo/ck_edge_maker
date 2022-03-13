@@ -4,7 +4,6 @@ A script for making spectra from the hdf5 dataset of eigenvalues and dynamical s
 """
 
 import numpy as np
-import h5py
 
 def get_site_spectrum_set(site_group):
     """
