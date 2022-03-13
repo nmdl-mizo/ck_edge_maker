@@ -40,7 +40,7 @@ def get_mol_spectrum_set(mol_group, average=True):
     mol_group : hdf5 group
         a molecule group in the hdf5 database
     average : bool, default True
-        whether to calculate weighted average (True) or sum (False) of dynamic structure factors 
+        whether to calculate weighted average (True) or sum (False) of dynamic structure factors
 
     Returns
     --------
@@ -50,7 +50,7 @@ def get_mol_spectrum_set(mol_group, average=True):
     mol_dsf_list = list()
     mol_ev_list = list()
     multiplicity_sum = 0.
-    for site_id, site_group in mol_group.items():
+    for _, site_group in mol_group.items():
         sss = get_site_spectrum_set(site_group)
         mol_dsf_list.append(sss["dsf"] * sss["multiplicity"])
         mol_ev_list.append(sss["ev"] + sss["exen"])
