@@ -1,5 +1,7 @@
 # C-K edge maker
 
+[![DOI](https://zenodo.org/badge/447862253.svg)](https://zenodo.org/badge/latestdoi/447862253)
+
 A dedicated Python script for making smeared C-K edge spectra from the hdf5 dataset of eigenvalues and dynamical structure factors
 
 ## Overview
