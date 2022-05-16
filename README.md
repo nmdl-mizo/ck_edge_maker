@@ -13,7 +13,7 @@ A dedicated Python script for making smeared C-K edge spectra from the hdf5 data
 
 The hdf5 dataset of eigenvalues and dynamical structure factors will be available along with a data paper
 
-[1] K. Shibata, K. Kikumasa, S. Kiyohara, T. Mizoguchi, submitted.
+[1] [Shibata, K., Kikumasa, K., Kiyohara, S. *et al.* Simulated carbon K edge spectral database of organic molecules. Sci Data 9, 214 (2022).](https://doi.org/10.1038/s41597-022-01303-8).
 
 ## Install
 
