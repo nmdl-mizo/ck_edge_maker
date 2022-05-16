@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 print("find_packages:", find_packages())
 setup(
     name='ck_edge_maker',
-    version="1.0.1",
+    version="1.0.2",
     description="A script for making spectra from the hdf5 dataset of eigenvalues and dynamical structure factors",
     long_description="A script for making spectra from the hdf5 dataset of eigenvalues and dynamical structure factors",
     url='https://github.com/nmdl-mizo/ck_edge_maker',
