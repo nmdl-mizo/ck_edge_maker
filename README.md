@@ -8,6 +8,7 @@ A dedicated Python script for making smeared C-K edge spectra from the hdf5 data
 
 - Some functions for making Gaussiean smeared spectra database from the hdf5 dataset of eigenvalues and dynamical structure factors
 - Commandline interface `ck_edge_maker`
+- Dataset class for Pytorch Geometric `ck_edge_maker.dataset.CK`
 
 ## Reference
 
