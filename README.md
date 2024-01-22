@@ -60,6 +60,8 @@ Calculate C-K edge spectra with Gaussian smearing from hdf5 spectral dataset
  
 ## Examples
 
+### Calculate and save C-K edge spectra with Gaussian smearing
+
 First, prepare the hdf5 dataset of eigenvalues and dynamical structure factors.
 The following is an example where the dataset is stored in the current directory with the name "site_eigen_dsf.hdf5".
 
@@ -73,12 +75,35 @@ ck_edge_maker mol site_eigen_dsf.hdf5 mol_spectra_0.5eV.hdf5 -f --sigma 0.5 --re
 ck_edge_maker site site_eigen_dsf.hdf5 site_spectra_0.5eV.hdf5 -f --sigma 0.5 --res 0.1 --margin 5
 ```
 
+### Dataset class for Pytorch Goemetric
+
+The dataset class for Pytorch Geometric is also available from ver.1.1.0.
+1. Install ck_edge_maker with pyg extras_require
+    ```bash
+    pip install ck_edge_maker[pyg]
+    ```
+1. Prepare site specific spectral dataset and place it in "dataset/raw" directory.
+1. Import CK class
+    ```python
+    from ck_edge_maker.dataset import CK
+    dataset = CK(
+      root="dataset",
+      energies=(288, 310, 256),
+      directional=True
+    )
+    ```
+
 ## Requirements
 
 - python (=>3)
 - h5py
 - numpy
 - tqdm
+
+### extras_require [pyg]
+- scipy
+- torch
+- torch_geometric
 
 ## Author
 
