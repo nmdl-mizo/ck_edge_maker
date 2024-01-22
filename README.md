@@ -8,6 +8,7 @@ A dedicated Python script for making smeared C-K edge spectra from the hdf5 data
 
 - Some functions for making Gaussiean smeared spectra database from the hdf5 dataset of eigenvalues and dynamical structure factors
 - Commandline interface `ck_edge_maker`
+- Dataset class for Pytorch Geometric `ck_edge_maker.dataset.CK`
 
 ## Reference
 
@@ -29,6 +30,12 @@ or directry run `pip install`:
 
 ``` bash
 $ pip install git+https://github.com/nmdl-mizo/ck_edge_maker
+```
+
+If you use the dataset class for PyTorch Geometric, include extras_require pyg:
+
+``` bash
+$ pip install "ck_edge_maker[pyg] @ git+https://github.com/nmdl-mizo/ck_edge_maker"
 ```
 
 To uninstall, use pip:
@@ -60,6 +67,8 @@ Calculate C-K edge spectra with Gaussian smearing from hdf5 spectral dataset
  
 ## Examples
 
+### Calculate and save C-K edge spectra with Gaussian smearing
+
 First, prepare the hdf5 dataset of eigenvalues and dynamical structure factors.
 The following is an example where the dataset is stored in the current directory with the name "site_eigen_dsf.hdf5".
 
@@ -73,12 +82,35 @@ ck_edge_maker mol site_eigen_dsf.hdf5 mol_spectra_0.5eV.hdf5 -f --sigma 0.5 --re
 ck_edge_maker site site_eigen_dsf.hdf5 site_spectra_0.5eV.hdf5 -f --sigma 0.5 --res 0.1 --margin 5
 ```
 
+### Dataset class for Pytorch Goemetric
+
+The dataset class for Pytorch Geometric is also available from ver.1.1.0.
+1. Install ck_edge_maker with pyg extras_require
+    ```bash
+    pip install ck_edge_maker[pyg]
+    ```
+1. Prepare site specific spectral dataset and place it in "dataset/raw" directory.
+1. Import CK class
+    ```python
+    from ck_edge_maker.dataset import CK
+    dataset = CK(
+      root="dataset",
+      energies=(288, 310, 256),
+      directional=True
+    )
+    ```
+
 ## Requirements
 
 - python (=>3)
 - h5py
 - numpy
 - tqdm
+
+### extras_require [pyg]
+- scipy
+- torch
+- torch_geometric
 
 ## Author
 
