@@ -32,6 +32,12 @@ or directry run `pip install`:
 $ pip install git+https://github.com/nmdl-mizo/ck_edge_maker
 ```
 
+If you use the dataset class for PyTorch Geometric, include extras_require pyg:
+
+``` bash
+$ pip install "ck_edge_maker[pyg] @ git+https://github.com/nmdl-mizo/ck_edge_maker"
+```
+
 To uninstall, use pip:
 
 ``` bash
